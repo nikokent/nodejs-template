@@ -35,6 +35,7 @@ if ! [ -x "$(command -v git)" ]; then
   exit 1
 else
   echo "${green}Git  is installed [✓]${reset}"
+  rm -rf .git
 fi
 
 if [ -f "package.json" ]; then
