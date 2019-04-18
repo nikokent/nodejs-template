@@ -6,6 +6,6 @@ The bash script will check and install necessary dependencies but you will need 
 as well as having git installed for terminal
 
 ## Instructions:
-  - Clone this repo project 
+  - Clone this repo project with 'git clone https://github.com/nikokent/nodejs-template.git'
   - navigate to folder in terminal and run 'bash run-installs.sh'
 
