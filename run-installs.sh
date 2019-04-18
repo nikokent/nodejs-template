@@ -34,7 +34,7 @@ fi
 
 #check for requirements
 if ! [ -x "$(command -v node)" ]; then
-  if ! [ -x "$(command -v apt-get)" ]; then
+  if ! [ -x "$(command -v apt)" ]; then
     if ! [ -x "$(command -v brew)" ]; then  
       echo "${red}Node is not installed. Please visit https://nodejs.org/en/ and install to continue! >&2${reset}"
       exit 1
@@ -45,7 +45,7 @@ if ! [ -x "$(command -v node)" ]; then
     fi
   else  
     echo "${yellow}Attempting to install node and npm${reset}"
-    sudo apt-get install nodejs npm
+    sudo apt install nodejs npm
     echo "${green}Node is installed [✓]${reset}"
   fi
 else
@@ -59,11 +59,11 @@ if ! [ -x "$(command -v git)" ]; then
     brew install git
     echo "${red}Please try to restart script${reset}"
   fi
-  if ! [ -x "$(command -v apt-get)" ]; then
+  if ! [ -x "$(command -v apt)" ]; then
     echo "${red}git is not installed. Please visit https://desktop.github.com/ and install to continue!' >&2${reset}"
   else
     echo 'Attempting to install git!'
-    sudo apt-get install git
+    sudo apt install git
     echo "${red}Please try to restart script${reset}"
   fi
   exit 1
