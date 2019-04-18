@@ -22,7 +22,6 @@ if [[ $* == *--fix* ]]; then
     cd ..
     rm -rf nodejs-template
     git clone https://github.com/nikokent/nodejs-template.git
-    cd nodejs-template
     exit 1
 fi
 
@@ -40,6 +39,13 @@ if ! [ -x "$(command -v git)" ]; then
   else
     echo 'Attempting to install git!'
     brew install git
+    echo "${red}Please try to restart script${reset}"
+  fi
+  if ! [ -x "$(command -v apt-get)" ]; then
+    echo "${red}git is not installed. Please visit https://desktop.github.com/ and install to continue!' >&2${reset}"
+  else
+    echo 'Attempting to install git!'
+    sudo apt-get install git
     echo "${red}Please try to restart script${reset}"
   fi
   exit 1
