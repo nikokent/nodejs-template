@@ -23,6 +23,7 @@ if [[ $* == *--fix* ]]; then
     rm -rf nodejs-template
     git clone https://github.com/nikokent/nodejs-template.git
     cd nodejs-template
+    exit 1
 fi
 
 #check for requirements
