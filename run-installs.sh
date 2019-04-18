@@ -2,6 +2,7 @@ red=`tput setaf 1`
 green=`tput setaf 2`
 yellow=`tput setaf 3`
 blue=`tput setaf 4`
+blue=`tput setaf 5`
 reset=`tput sgr0`
 
 #helper functions 
@@ -87,6 +88,7 @@ else
 fi
 
 if [ -f "app.js" ]; then
+  echo "${color} (づ｡◕‿‿◕｡)づ AlMosT DoNe! ${reset}"
   echo "${green}Starting your server!${reset}"
   echo "From now on to run the server run: ${yellow}node app.js${reset}"
   echo "Thank you for trying my template! Enjoy! ${blue}-Niko Kent :)${reset}"
@@ -95,4 +97,12 @@ else
   echo 'Cloning node js template from git'
   git clone https://github.com/nikokent/nodejs-template.git
   rm -rf .git
+fi
+
+if ![ -x "$(command -v apt)" ]; then
+  xdg-open localhost:3000/
+fi
+
+if [ -x "$(command -v brew)" ]; then  
+  open localhost:3000/
 fi

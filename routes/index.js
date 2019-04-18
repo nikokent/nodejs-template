@@ -7,7 +7,9 @@ const moment = require('moment');
 router.get('/', async (req, res) => {
     const resObj = {
         Server_Status: "Healthy",
-        Time: moment().format('MM/DD/YYYY HH:mm:ss a')
+        Time: moment().format('MM/DD/YYYY HH:mm:ss a'),
+        For_Fun: `Niko was here ¯\_(ツ)_/¯`,
+        Note: `Hope you enjoy this template! There should be a lot of examples and useless stuff you might want to just remove so ... best of luck :) -Niko`
     }
     res.send(resObj);
 });
@@ -27,7 +29,8 @@ router.get('/withParams', async (req, res) => {
 router.post('/postExample', async (req, res) => {
     const jsonObj = {
         Description: "This is just a random example of json response with post and returning a body",
-        Value: req.body
+        Value: req.body,
+        For_Fun: `Niko was here ¯\_(ツ)_/¯`
     }
     console.log(`A post request was recieved with data:`);
     console.log(req.body);
