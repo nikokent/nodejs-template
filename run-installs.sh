@@ -40,7 +40,6 @@ else
   echo "${green}Node is installed [✓]${reset}"
 fi
 if ! [ -x "$(command -v git)" ]; then
-  echo 'git is not installed. Please visit https://nodejs.org/en/ and install to continue!' >&2
   if ! [ -x "$(command -v brew)" ]; then
     echo "${red}git is not installed. Please visit https://desktop.github.com/ and install to continue!' >&2${reset}"
   else
