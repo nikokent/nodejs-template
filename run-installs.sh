@@ -25,6 +25,13 @@ if [[ $* == *--fix* ]]; then
     exit 1
 fi
 
+if [ -f "package.json" ]; then
+  echo "${green}Looks like template has been built already!${reset}"
+  echo "Running ${yellow}node app.js${reset}"
+  node app.js
+  exit 1
+fi
+
 #check for requirements
 if ! [ -x "$(command -v node)" ]; then
   echo 'Node is not installed. Please visit https://nodejs.org/en/ and install to continue!' >&2

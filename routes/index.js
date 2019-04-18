@@ -1,10 +1,15 @@
 var express = require('express'); // express is the library for our server
 var router = express.Router();    // router is how we access the server at a specified url path
+const moment = require('moment');
 
 /* GET index response */
 //accessed at 'localhost:<port>'
 router.get('/', async (req, res) => {
-  res.send("Index response");
+    const resObj = {
+        Server_Status: "Healthy",
+        Time: moment().format('MM/DD/YYYY HH:mm:ss a')
+    }
+    res.send(resObj);
 });
 
 /* GET index response with path */
