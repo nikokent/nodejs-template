@@ -37,15 +37,17 @@ if ! [ -x "$(command -v node)" ]; then
   if ! [ -x "$(command -v apt-get)" ]; then
     if ! [ -x "$(command -v brew)" ]; then  
       echo "${red}Node is not installed. Please visit https://nodejs.org/en/ and install to continue! >&2${reset}"
+      exit 1
     else
       echo 'Attempting to install node and npm!'
       brew install node
-      echo "${red}Please try to restart script${reset}"
+      echo "${green}Node is installed [✓]${reset}"
     fi
   else  
     echo "${yellow}Attempting to install node and npm${reset}"
     sudo apt-get install nodejs npm
-  exit 1
+    echo "${green}Node is installed [✓]${reset}"
+  fi
 else
   echo "${green}Node is installed [✓]${reset}"
 fi
