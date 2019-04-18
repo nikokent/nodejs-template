@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 //TODO: Create all routes here!
 const indexRouter = require('./routes/index'); 
+const databaseExampleRouter = require('./routes/databaseExample'); 
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -38,9 +39,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //first paramater is the path
 //second parameter is the route object
 app.use('/', indexRouter);
-app.use('/index', indexRouter);             //note that these work like folder paths, for organization purpose
-app.use('/another/example', indexRouter);   //it's standard to have this be the parent path to a group of related
-                                            //end points, in this case I just reused indexRouter
+app.use('/index', indexRouter);               //note that these work like folder paths, for organization purpose
+app.use('/another/example', indexRouter);     //it's standard to have this be the parent path to a group of related
+                                              //end points, in this case I just reused indexRouter
+
+app.use('/database/', databaseExampleRouter); //All end points from this path will be related to our database
                                 
 
 //0.0.0.0 is the localhost and runs on your chosen port
