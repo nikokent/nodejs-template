@@ -35,7 +35,12 @@ if ! [ -x "$(command -v git)" ]; then
   exit 1
 else
   echo "${green}Git  is installed [✓]${reset}"
-  rm -rf .git
+  if [[ $* == *--keep* ]]; then
+    echo "${green}Keeping repo setup!${reset}"
+  else
+    echo "${red}Removing all traces of git within project${reset}"
+    rm -rf .git
+  fi
 fi
 
 if [ -f "package.json" ]; then
