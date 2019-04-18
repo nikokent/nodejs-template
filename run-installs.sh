@@ -16,6 +16,15 @@ download_packages () {
   npm install mysql --save
 }
 
+#check for fixing repo
+if [[ $* == *--fix* ]]; then
+    echo "${green}Fixing repo setup!${reset}"
+    cd ..
+    rm -rf nodejs-template
+    git clone https://github.com/nikokent/nodejs-template.git
+    cd nodejs-template
+fi
+
 #check for requirements
 if ! [ -x "$(command -v node)" ]; then
   echo 'Node is not installed. Please visit https://nodejs.org/en/ and install to continue!' >&2
