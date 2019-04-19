@@ -29,6 +29,9 @@ fi
 if [ -f "package.json" ]; then
   echo "${green}Looks like template has been built already!${reset}"
   echo "Running ${yellow}node app.js${reset}"
+  if ! [ -x "$(command -v firefox)" ]; then
+    firefox localhost:3000
+  fi
   node app.js
   exit 1
 fi
@@ -92,17 +95,12 @@ if [ -f "app.js" ]; then
   echo "${green}Starting your server!${reset}"
   echo "From now on to run the server run: ${yellow}node app.js${reset}"
   echo "Thank you for trying my template! Enjoy! ${blue}-Niko Kent :)${reset}"
+  if ! [ -x "$(command -v firefox)" ]; then
+    firefox localhost:3000
+  fi
   node app.js
 else
   echo 'Cloning node js template from git'
   git clone https://github.com/nikokent/nodejs-template.git
   rm -rf .git
-fi
-
-if ![ -x "$(command -v apt)" ]; then
-  xdg-open localhost:3000/
-fi
-
-if [ -x "$(command -v brew)" ]; then  
-  open localhost:3000/
 fi
