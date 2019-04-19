@@ -54,6 +54,8 @@ app.use('/another/example', indexRouter);     //it's standard to have this be th
 //server can be accessed from browser at 'localhost:<portnumber>' as the url
 app.listen(port, '0.0.0.0', () => {
     console.log(`\nYour template server is up and running!`);
+    console.log(`The server will run as long as this process in this terminal\nis not interrupted`);
+    console.log(`To kill server Press Ctrl-C or close the terminal`);
     console.log(`\nThings to try:`)
     console.log(`   [1.]Open a browser and enter 'localhost:${port}/' as the URL to view your server`);
     console.log(`   [2.]Visit localhost:${port}/withParams?SomeRandomParameterName=Hi_I_Am_Niko`);
