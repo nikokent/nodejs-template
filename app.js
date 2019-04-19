@@ -51,7 +51,7 @@ app.use('/another/example', indexRouter);     //it's standard to have this be th
 app.listen(port, '0.0.0.0', () => {
     console.log(`\nYour template server is up and running!`);
     console.log(`\nThings to try:`)
-    console.log(`   visit localhost:${port}/ to view your server`);
+    console.log(`   Open a browser and enter 'localhost:${port}/' as the URL to view your server`);
     console.log(`   visit localhost:${port}/withParams?SomeRandomParameterName=Hi_I_Am_Niko`);
     console.log(`   use postman and send a post request to localhost:${port}/postExample`);
 });
