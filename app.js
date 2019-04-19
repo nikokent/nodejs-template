@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Handle cross browser problems
+// feel free to just ignore this and let it do it's thing
 app.all('/*', (req, res, next) => {
     // CORS headers
     res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
@@ -29,6 +30,7 @@ app.all('/*', (req, res, next) => {
     }
 });
 
+//adding our libraries in and setting up express
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -43,6 +45,8 @@ app.use('/index', indexRouter);               //note that these work like folder
 app.use('/another/example', indexRouter);     //it's standard to have this be the parent path to a group of related
                                               //end points, in this case I just reused indexRouter
 
+//The database end point will stay commented out unless there is an actual database
+//  that is setup, if a database exists, open lib/db and enter the db info accordingly.
 //app.use('/database/', databaseExampleRouter); //All end points from this path will be related to our database
                                 
 
@@ -51,8 +55,8 @@ app.use('/another/example', indexRouter);     //it's standard to have this be th
 app.listen(port, '0.0.0.0', () => {
     console.log(`\nYour template server is up and running!`);
     console.log(`\nThings to try:`)
-    console.log(`   Open a browser and enter 'localhost:${port}/' as the URL to view your server`);
-    console.log(`   visit localhost:${port}/withParams?SomeRandomParameterName=Hi_I_Am_Niko`);
-    console.log(`   use postman and send a post request to localhost:${port}/postExample`);
+    console.log(`   [1.]Open a browser and enter 'localhost:${port}/' as the URL to view your server`);
+    console.log(`   [2.]Visit localhost:${port}/withParams?SomeRandomParameterName=Hi_I_Am_Niko`);
+    console.log(`   [3.]Use postman and send a post request to localhost:${port}/postExample`);
 });
 
