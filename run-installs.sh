@@ -38,7 +38,7 @@ fi
 
 #check for requirements
 if ! [ -x "$(command -v node)" ]; then
-  if ! [ -x "$(command -v apt)" ]; then
+  if ! [ -x "$(command -v apt-get)" ]; then
     if ! [ -x "$(command -v brew)" ]; then  
       echo "${red}Node is not installed. Please visit https://nodejs.org/en/ and install to continue! >&2${reset}"
       exit 1
