@@ -63,7 +63,7 @@ if ! [ -x "$(command -v git)" ]; then
     brew install git
     echo "${red}Please try to restart script${reset}"
   fi
-  if ! [ -x "$(command -v apt)" ]; then
+  if ! [ -x "$(command -v apt-get)" ]; then
     echo "${red}git is not installed. Please visit https://desktop.github.com/ and install to continue!' >&2${reset}"
   else
     echo 'Attempting to install git!'
