@@ -17,12 +17,55 @@ download_packages () {
   npm install mysql --save
 }
 
+mysql_instr () {
+  echo "${yellow}Some startup commands to get mysql going: ${reset}"
+  echo "${yellow}*Note your mysql default user: root    and no password${reset}"
+  echo "${yellow}1. mysql -u root ${reset}"
+  echo "( ON FIRST TIME RUN )  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';"
+  echo "${yellow}2. CREATE DATABASE firstDB; (Only do this on your first time)${reset}"
+  echo "${yellow}3. USE firstDB; ${reset}"
+  echo "${yellow}4. CREATE TABLE accounts ( ${reset}"
+  echo "${yellow}      id              INT unsigned NOT NULL AUTO_INCREMENT,${reset}"
+  echo "${yellow}      username            VARCHAR(150) NOT NULL,   ${reset}"
+  echo "${yellow}      password           VARCHAR(150) NOT NULL,  ${reset}"
+  echo "${yellow}      PRIMARY KEY     (id)   ${reset}"
+  echo "${yellow} );   #(Only do this on your first time! also you can copy and paste)${reset}"
+  echo 
+  echo "${yellow}5. SHOW TABLES${reset}"
+  echo "${yellow}6. exit ${reset}"
+  echo "${red}To exit mysql type   exit   ${reset}"
+  echo "${reset}Once the table is setup, run the server to check that the server connects to our database${reset}"
+}
+
 #check for fixing repo
 if [[ $* == *--fix* ]]; then
     echo "${green}Fixing repo setup!${reset}"
     cd ..
     rm -rf nodejs-template
     git clone https://github.com/nikokent/nodejs-template.git
+    exit 1
+fi
+
+#setup mongo
+if [[ $* == *--mongo* ]]; then
+    if ! [ -x "$(command -v mongo)" ]; then
+      echo "${green}Downloading mongodb!${reset}"
+      brew install mongodb
+    fi
+    echo "${green}Running mongodb as background service!${reset}"
+    brew services start mongodb
+    exit 1
+fi
+
+#setup mysql
+if [[ $* == *--mysql* ]]; then
+    if ! [ -x "$(command -v mysql)" ]; then
+      echo "${green}Downloading mysql!${reset}"
+      brew install mysql
+    fi
+    echo "${green}Running mysql as background service!${reset}"
+    brew services start mysql
+    mysql_instr
     exit 1
 fi
 
